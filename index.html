@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jarno poissmeestekas · 20. juuni 2026</title>
+<style>
+  :root{
+    --bg:#0c1322;
+    --bg-soft:#121d33;
+    --card:#16223c;
+    --line:#243657;
+    --ink:#eaf1ff;
+    --muted:#9fb2d4;
+    --accent:#ffb338;
+    --accent-2:#36d6c3;
+    --danger:#ff6b6b;
+    --shadow:0 18px 45px rgba(0,0,0,.45);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+    background:radial-gradient(1200px 600px at 80% -10%,#1d2c4d 0%,transparent 60%),var(--bg);
+    color:var(--ink);
+    line-height:1.55;
+  }
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+
+  /* HERO */
+  header.hero{
+    position:relative;
+    text-align:center;
+    padding:90px 20px 70px;
+    background:
+      radial-gradient(900px 500px at 50% -40%,rgba(255,179,56,.22),transparent 70%),
+      linear-gradient(180deg,#0e1830,#0c1322);
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+  }
+  .kicker{
+    display:inline-block;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    font-size:13px;
+    font-weight:700;
+    color:var(--accent);
+    border:1px solid rgba(255,179,56,.4);
+    border-radius:999px;
+    padding:7px 16px;
+    margin-bottom:22px;
+  }
+  header.hero h1{
+    margin:0;
+    font-size:clamp(38px,8vw,76px);
+    line-height:1.02;
+    letter-spacing:-.02em;
+    text-shadow:0 4px 30px rgba(0,0,0,.4);
+  }
+  header.hero h1 span{color:var(--accent)}
+  .tagline{
+    margin:18px auto 0;
+    max-width:620px;
+    color:var(--muted);
+    font-size:clamp(16px,2.4vw,20px);
+  }
+  .hero-meta{
+    margin-top:34px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    justify-content:center;
+  }
+  .pill{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:12px 18px;
+    min-width:140px;
+    box-shadow:var(--shadow);
+  }
+  .pill .lbl{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .pill .val{display:block;font-size:18px;font-weight:700;margin-top:3px}
+
+  /* SECTIONS */
+  section{padding:64px 0}
+  section h2{
+    font-size:clamp(26px,4vw,38px);
+    margin:0 0 6px;
+    letter-spacing:-.01em;
+  }
+  .sub{color:var(--muted);margin:0 0 34px}
+  .accentbar{width:54px;height:4px;border-radius:4px;background:var(--accent);margin:0 0 24px}
+
+  /* TIMELINE */
+  .day-label{
+    display:flex;align-items:center;gap:14px;
+    margin:8px 0 26px;
+    font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-2);font-weight:700;
+  }
+  .day-label::after{content:"";flex:1;height:1px;background:var(--line)}
+  .timeline{position:relative;margin-left:8px;padding-left:30px;border-left:2px solid var(--line)}
+  .event{position:relative;margin-bottom:26px}
+  .event::before{
+    content:"";position:absolute;left:-39px;top:6px;
+    width:14px;height:14px;border-radius:50%;
+    background:var(--accent);box-shadow:0 0 0 4px rgba(255,179,56,.15);
+  }
+  .event .time{
+    display:inline-block;font-weight:700;color:var(--accent);
+    font-size:14px;letter-spacing:.05em;
+  }
+  .event .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px 18px;
+    margin-top:8px;
+    box-shadow:var(--shadow);
+  }
+  .event h3{margin:0 0 6px;font-size:18px}
+  .event p{margin:0;color:var(--muted);font-size:15px}
+  .tags{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+  .tag{
+    font-size:12px;border-radius:999px;padding:4px 11px;
+    border:1px solid var(--line);color:var(--muted);background:var(--bg-soft);
+  }
+  .tag.who{border-color:rgba(54,214,195,.4);color:var(--accent-2)}
+  .tag.need{border-color:rgba(255,179,56,.4);color:var(--accent)}
+
+  /* PARTICIPANTS */
+  .people{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(170px,1fr));
+    gap:12px;
+  }
+  .person{
+    display:flex;align-items:center;gap:12px;
+    background:var(--card);border:1px solid var(--line);
+    border-radius:12px;padding:11px 14px;
+  }
+  .person.groom{
+    border-color:rgba(255,179,56,.55);
+    background:linear-gradient(180deg,rgba(255,179,56,.12),var(--card));
+  }
+  .avatar{
+    width:38px;height:38px;border-radius:50%;flex:0 0 38px;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:700;font-size:15px;background:var(--bg-soft);color:var(--accent-2);
+    border:1px solid var(--line);
+  }
+  .person.groom .avatar{background:var(--accent);color:#1a1206;border:none}
+  .person .nm{font-size:14px;font-weight:600;line-height:1.2}
+  .person .role{font-size:11px;color:var(--muted)}
+  .status{margin-left:auto;font-size:12px}
+  .status.ok{color:var(--accent-2)}
+  .status.maybe{color:var(--accent)}
+
+  /* BUDGET */
+  .budget-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}
+  table.budget{width:100%;border-collapse:collapse;font-size:15px}
+  table.budget td{padding:10px 4px;border-bottom:1px solid var(--line)}
+  table.budget td:last-child{text-align:right;font-variant-numeric:tabular-nums;color:var(--ink);white-space:nowrap}
+  table.budget tr.total td{font-weight:700;font-size:17px;border-bottom:none;padding-top:16px}
+  table.budget tr.total td:last-child{color:var(--accent)}
+  .cost-card{
+    background:linear-gradient(160deg,#1c2a49,#16223c);
+    border:1px solid var(--line);border-radius:18px;
+    padding:28px;text-align:center;box-shadow:var(--shadow);
+  }
+  .cost-card .big{font-size:clamp(40px,8vw,64px);font-weight:800;color:var(--accent);line-height:1}
+  .cost-card .lbl{color:var(--muted);letter-spacing:.16em;text-transform:uppercase;font-size:12px;margin-top:8px}
+  .cost-card .per{
+    margin-top:22px;padding-top:22px;border-top:1px solid var(--line);
+    font-size:15px;color:var(--muted);
+  }
+  .cost-card .per b{color:var(--accent-2);font-size:26px;display:block}
+
+  /* IDEAS */
+  .ideas{display:flex;flex-wrap:wrap;gap:10px}
+  .idea{
+    background:var(--bg-soft);border:1px dashed var(--line);
+    border-radius:12px;padding:10px 14px;font-size:14px;color:var(--muted);
+  }
+
+  footer{
+    border-top:1px solid var(--line);
+    text-align:center;padding:40px 20px;color:var(--muted);font-size:14px;
+  }
+  footer .heart{color:var(--danger)}
+
+  @media (max-width:640px){
+    .budget-grid{grid-template-columns:1fr}
+    section{padding:48px 0}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">Poissmeestepidu · Läänemaa</span>
+    <h1>Jarno <span>viimane</span><br>vaba mehe päev</h1>
+    <p class="tagline">Üks legend. Üks buss. Üks päev Taeblast Roostani — enne kui Jarno Nurm astub abiellu.</p>
+    <div class="hero-meta">
+      <div class="pill"><span class="lbl">Kuupäev</span><span class="val">Laupäev, 20.06</span></div>
+      <div class="pill"><span class="lbl">Algus</span><span class="val">9:30 · Pirita</span></div>
+      <div class="pill"><span class="lbl">Mehi pardal</span><span class="val">19</span></div>
+      <div class="pill"><span class="lbl">Lõpp-punkt</span><span class="val">Roosta · Termikas</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- PÄEVAKAVA -->
+  <section id="kava">
+    <div class="accentbar"></div>
+    <h2>Päevakava</h2>
+    <p class="sub">Marsruut: Pirita → buss Läänemaale → Taebla → Kirimäe → Haapsalu → Roosta. Pidžaamast pole juttu.</p>
+
+    <div class="day-label">Laupäev, 20. juuni</div>
+    <div class="timeline">
+
+      <div class="event">
+        <span class="time">9:30</span>
+        <div class="card">
+          <h3>Kohtumine Pirita Snack Pointis</h3>
+          <p>Jarno navigeerib rolleriga kohale — koordinaadid antakse eelmisel päeval koos Valdise kostüümiga (Must Luik kostüümilaenutusest).</p>
+          <div class="tags"><span class="tag who">Vastutaja: Georg</span><span class="tag need">Vaja: kostüüm</span></div>
+        </div>
+      </div>
+
+      <div class="event">
+        <span class="time">10:00</span>
+        <div class="card">
+          <h3>Pirita Selver — käe kaalumine</h3>
+          <p>Kaalume pea ja käe. Ennustused: palju kaalub peigmees päeva lõpuks?</p>
+        </div>
+      </div>
+
+      <div class="event">
+        <span class="time">11:00</span>
+        <div class="card">
+          <h3>Bussisõit Läänemaale</h3>
+          <p>Teel viktoriin peigmehe elust.</p>
+          <div class="tags"><span class="tag who">Vastutaja: Lennu, Mikk</span><span class="tag need">Vaja: viktoriin koostada</span></div>
+        </div>
+      </div>
+
+      <div class="event">
+        <span class="time">13:00</span>
+        <div class="card">
+          <h3>Teine sihtpunkt: Taebla</h3>
+          <p>Retk Taeblasse giididega — peigmees, vend ja isa viivad läbi ekskursiooni paikadesse, mis kujundasid legendi nimega Jarno. Dokumenteerime polaroidkaameraga, kus ta ärandas esimese Opel Vectra 2.4 V6, kus pätsas turbonätsu, tekitas Läänemaa suurima kulupõlengu ning võitis ja kaotas oma esimese kakluse.</p>
+          <div class="tags"><span class="tag who">Vastutaja: Raino, Karl, Martin, Andreas</span><span class="tag need">Vaja: route paika (max 45 min)</span></div>
+        </div>
+      </div>
+
+      <div class="event">
+        <span class="time">14:30</span>
+        <div class="card">
+          <h3>Söök</h3>
+          <p>Tõenäoliselt Paeshwari köök, kohe Taebla küljes.</p>
+          <div class="tags"><span class="tag who">Vastutaja: Rain, Nugis</span></div>
+        </div>
+      </div>
+
+      <div class="event">
+        <span class="time">15:30</span>
+        <div class="card">
+          <h3>Start Kirimäe suunal</h3>
+          <p>Bussis laulud.</p>
+          <div class="tags"><span class="tag who">Vastutaja: Georg</span><span class="tag need">Vaja: laulud valmis kirjutada</span></div>
+        </div>
+      </div>
+
+      <div class="event">
+        <span class="time">16:00</span>
+        <div class="card">
+          <h3>Kirimäe saare supluskoht</h3>
+          <p>Viimane suplus vaba mehena — „Põgene, vaba laps&rdquo; saatel jooks merre. Seejärel ametlik poissmehepõlve hüvastijätt: kõige rumalama rannapildi konkurss ja rahvahääletus.</p>
+          <div class="tags"><span class="tag who">Vastutaja: Martin, Andreas, Henri S</span><span class="tag need">Vaja: ujumispüksid / trikoo</span></div>
+        </div>
+      </div>
+
+      <div class="event">
+        <span class="time">17:00</span>
+        <div class="card">
+          <h3>Haapsalu kesklinn — „naisevõtt&rdquo;</h3>
+          <p>Viimane praktiline eksam enne abiellu astumist. Ülesanded: saada „õnge otsa&rdquo; vähemalt üks naisterahvas (mida rohkem, seda parem), lunida välja vähemalt üks põsemusi ja veenda komisjoni, et tegu on kultuurilise traditsiooniga. Lisapunkte: loomulikkus, enesekindlus, kalamehejutu kvaliteet.</p>
+          <div class="tags"><span class="tag who">Vastutaja: Heldur, Madis</span><span class="tag need">Vaja: ruupor</span></div>
+        </div>
+      </div>
+
+      <div class="event">
+        <span class="time">18:00</span>
+        <div class="card">
+          <h3>Neljas sihtpunkt: Haapsalu majutus</h3>
+          <p>Endla hostel broneeritud. Joogivärgi orgunn kohale.</p>
+        </div>
+      </div>
+
+      <div class="event">
+        <span class="time">19:00</span>
+        <div class="card">
+          <h3>Getting ready — Jarnost saab Jaagup Kreem</h3>
+          <p>Ekside minemalennutamine hiina laternaga, taustal lugu „Fly on the Wings of Nurm&rdquo;.</p>
+          <div class="tags"><span class="tag who">Vastutaja: Martin Siimann</span></div>
+        </div>
+      </div>
+
+      <div class="event">
+        <span class="time">20:00</span>
+        <div class="card">
+          <h3>Sõit Roostale — Open Mic Roast</h3>
+          <p>Haapsalust Roostale: „Jorts kadunud 60 sekundiga&rdquo;.</p>
+          <div class="tags"><span class="tag who">Vastutaja: Brandon, Traks</span></div>
+        </div>
+      </div>
+
+      <div class="event">
+        <span class="time">21:00 – 23:00</span>
+        <div class="card">
+          <h3>Termikas 🔥</h3>
+          <p>Roosta. Õhtu põhiprogramm.</p>
+        </div>
+      </div>
+
+      <div class="event">
+        <span class="time">1:00</span>
+        <div class="card">
+          <h3>Sõit tagasi Haapsallu</h3>
+          <p>Peobuss väljub Roostalt kell 01:00 (võtab rahva peale Elbiku bussipeatusest suure tee äärest).</p>
+          <div class="tags"><span class="tag who">Vastutaja: Martin Siimann, Rain, Nugis, Georg</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="day-label">Pühapäev, 21. juuni</div>
+    <div class="timeline">
+      <div class="event">
+        <span class="time">12:00</span>
+        <div class="card">
+          <h3>Hommikusöök</h3>
+          <p>Nurme Bistroo (broneerida): 53987662.</p>
+        </div>
+      </div>
+      <div class="event">
+        <span class="time">17:00</span>
+        <div class="card">
+          <h3>Aftermath · Lastekodu 24</h3>
+          <p>Kes jaksab, see jaksab — rahulik häng ja taastumine. Üleüldine söök, jook jne.</p>
+          <div class="tags"><span class="tag who">Vastutaja: Sten, Nugis, Rain</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OSALEJAD -->
+  <section id="osalejad">
+    <div class="accentbar"></div>
+    <h2>Osalejad</h2>
+    <p class="sub">19 meest kinnitanud · 1 veel kaalumisel.</p>
+    <div class="people">
+      <div class="person groom"><div class="avatar">JN</div><div><div class="nm">Jarno Nurm</div><div class="role">Peigmees</div></div><span class="status ok">●</span></div>
+      <div class="person"><div class="avatar">GK</div><div class="nm">Georg Kaasik</div><span class="status ok">OK</span></div>
+      <div class="person"><div class="avatar">LM</div><div class="nm">Lennart Meri</div><span class="status ok">OK</span></div>
+      <div class="person"><div class="avatar">MN</div><div class="nm">Marek Nugis</div><span class="status ok">OK</span></div>
+      <div class="person"><div class="avatar">RL</div><div class="nm">Rain Laansalu</div><span class="status ok">OK</span></div>
+      <div class="person"><div class="avatar">HS</div><div class="nm">Henri Siht</div><span class="status ok">OK</span></div>
+      <div class="person"><div class="avatar">MS</div><div class="nm">Martin Siimann</div><span class="status ok">OK</span></div>
+      <div class="person"><div class="avatar">MH</div><div class="nm">Martin Hirvesaar</div><span class="status ok">OK</span></div>
+      <div class="person"><div class="avatar">ST</div><div class="nm">Sander Traks</div><span class="status ok">OK</span></div>
+      <div class="person"><div class="avatar">BP</div><div class="nm">Brandon Povilaitis</div><span class="status ok">OK</span></div>
+      <div class="person"><div class="avatar">SM</div><div class="nm">Sten Mõtus</div><span class="status ok">OK</span></div>
+      <div class="person"><div class="avatar">MP</div><div class="nm">Mikk Pinnonen</div><span class="status ok">OK</span></div>
+      <div class="person"><div class="avatar">KK</div><div class="nm">Karl Kurmiste</div><span class="status ok">OK</span></div>
+      <div class="person"><div class="avatar">RN</div><div class="nm">Raino Nurm</div><span class="status ok">OK</span></div>
+      <div class="person"><div class="avatar">HS</div><div class="nm">Heldur Sepp</div><span class="status ok">OK</span></div>
+      <div class="person"><div class="avatar">MK</div><div class="nm">Madis Kokkuta</div><span class="status ok">OK</span></div>
+      <div class="person"><div class="avatar">AP</div><div class="nm">Andreas Pungar</div><span class="status ok">OK</span></div>
+      <div class="person"><div class="avatar">KE</div><div class="nm">Karl Erik Esko</div><span class="status ok">OK</span></div>
+      <div class="person"><div class="avatar">MN</div><div class="nm">Margus Nurm</div><span class="status maybe">?</span></div>
+    </div>
+  </section>
+
+  <!-- EELARVE -->
+  <section id="eelarve">
+    <div class="accentbar"></div>
+    <h2>Eelarve</h2>
+    <p class="sub">Kinnitatud kulud. Jagatud 17 maksja vahel.</p>
+    <div class="budget-grid">
+      <table class="budget">
+        <tr><td>Bussirent</td><td>496 €</td></tr>
+        <tr><td>Majutus (Endla hostel)</td><td>694 €</td></tr>
+        <tr><td>Söögikoht</td><td>270 €</td></tr>
+        <tr><td>Termikas + buss Roostalt tagasi</td><td>425 €</td></tr>
+        <tr><td>9 Luxi piletit</td><td>72 €</td></tr>
+        <tr><td>Plakat A4</td><td>43,40 €</td></tr>
+        <tr><td>Valdise kostüüm</td><td>35 €</td></tr>
+        <tr><td>McJarno särk</td><td>27,50 €</td></tr>
+        <tr class="total"><td>Kulud kokku</td><td>2062,90 €</td></tr>
+      </table>
+      <div class="cost-card">
+        <div class="big">2063 €</div>
+        <div class="lbl">Kulud kokku</div>
+        <div class="per">Per nokk umbes<b>121,35 €</b>(peigmehe arvel ja Lennu &amp; Bräna kuludeta)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IDEED -->
+  <section id="ideed">
+    <div class="accentbar"></div>
+    <h2>Aktiviteetide ideed</h2>
+    <p class="sub">Veel kaalumisel / varuks.</p>
+    <div class="ideas">
+      <div class="idea">Kreisiraadio elemendid — „kaalun käe ära&rdquo; jne</div>
+      <div class="idea">Kiltsi lennuväljal miski</div>
+      <div class="idea">Paintball</div>
+      <div class="idea">Kardisõit</div>
+      <div class="idea">Ettetuulutaja külastus</div>
+      <div class="idea">Strippar vms</div>
+      <div class="idea">Fra Mare spa Haapsalus ööbimiseks?</div>
+      <div class="idea">Tegevuskaart Jarnole päeva ülesannetega</div>
+      <div class="idea">Reegel: igal bussi naasmisel teeb Jarno ringi (ümber poe / stadioni)</div>
+      <div class="idea">Klubi Aafrikas — midagi veel korraldada?</div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>🥂 Jarno poissmeestekas · 20.–21. juuni 2026 · Taebla &amp; Läänemaa</p>
+  <p>Tehtud poistega, <span class="heart">♥</span> peigmehele. Detailid võivad muutuda.</p>
+</footer>
+
+</body>
+</html>
