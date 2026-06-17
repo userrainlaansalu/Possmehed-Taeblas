@@ -130,6 +130,9 @@
   }
   .tag.who{border-color:rgba(54,214,195,.4);color:var(--accent-2)}
   .tag.need{border-color:rgba(255,179,56,.4);color:var(--accent)}
+  .tag.tbd{border-color:rgba(255,107,107,.5);color:var(--danger)}
+  .event.tentative .card{border-style:dashed;border-color:rgba(255,107,107,.45)}
+  .event.tentative::before{background:var(--danger);box-shadow:0 0 0 4px rgba(255,107,107,.15)}
 
   /* PARTICIPANTS */
   .people{
@@ -220,7 +223,7 @@
   <section id="kava">
     <div class="accentbar"></div>
     <h2>Päevakava</h2>
-    <p class="sub">Marsruut: Pirita → buss Läänemaale → Taebla → Kirimäe → Haapsalu → Roosta. Pidžaamast pole juttu.</p>
+    <p class="sub">Marsruut: Pirita → Ääsmäe → Taebla → Kirimäe → Haapsalu → Roosta. Pidžaamast pole juttu.</p>
 
     <div class="day-label">Laupäev, 20. juuni</div>
     <div class="timeline">
@@ -229,8 +232,8 @@
         <span class="time">9:30</span>
         <div class="card">
           <h3>Kohtumine Pirita Snack Pointis</h3>
-          <p>Jarno navigeerib rolleriga kohale — koordinaadid antakse eelmisel päeval koos Valdise kostüümiga (Must Luik kostüümilaenutusest).</p>
-          <div class="tags"><span class="tag who">Vastutaja: Georg</span><span class="tag need">Vaja: kostüüm</span></div>
+          <p>Jarno navigeerib rolleriga kohale — koordinaadid antakse eelmisel päeval koos Valdise kostüümiga (Must Luik kostüümilaenutusest). Bussijoogid on ette ostetud ja Snackpointi kaasa võetud.</p>
+          <div class="tags"><span class="tag who">Vastutaja: Georg</span><span class="tag need">Vaja: kostüüm</span><span class="tag need">Bussijoogid ✓</span></div>
         </div>
       </div>
 
@@ -251,6 +254,15 @@
         </div>
       </div>
 
+      <div class="event tentative">
+        <span class="time">~12:00</span>
+        <div class="card">
+          <h3>Ääsmäe Hipodroom — traavisõit 🐎</h3>
+          <p>Enne Taeblat teeme peatuse Ääsmäe Hipodroomil, kus Jarno saab traavisõidu kogemuse. Kui ei kinnitu, toimub vahepeal midagi alternatiivset.</p>
+          <div class="tags"><span class="tag tbd">80% kinnitamisel</span></div>
+        </div>
+      </div>
+
       <div class="event">
         <span class="time">13:00</span>
         <div class="card">
@@ -261,11 +273,11 @@
       </div>
 
       <div class="event">
-        <span class="time">14:30</span>
+        <span class="time">14:00</span>
         <div class="card">
-          <h3>Söök</h3>
-          <p>Tõenäoliselt Paeshwari köök, kohe Taebla küljes.</p>
-          <div class="tags"><span class="tag who">Vastutaja: Rain, Nugis</span></div>
+          <h3>Lõuna · Iveria restoran 🇬🇪</h3>
+          <p>Kinnitatud! Gruusia köök Iverias, poolel teel Taebla ja Haapsalu vahel. Laud broneeritud kell 14:00 — paneme šaššarid sisse.</p>
+          <div class="tags"><span class="tag who">Vastutaja: Rain, Nugis</span><span class="tag need">Laud broneeritud ✓</span></div>
         </div>
       </div>
 
@@ -300,7 +312,8 @@
         <span class="time">18:00</span>
         <div class="card">
           <h3>Neljas sihtpunkt: Haapsalu majutus</h3>
-          <p>Endla hostel broneeritud. Joogivärgi orgunn kohale.</p>
+          <p>Endla hostel broneeritud. Õhtusöök kaetud — orgunnime pizzad kohale ja valmistume Termikaks.</p>
+          <div class="tags"><span class="tag need">Pizzad ✓</span></div>
         </div>
       </div>
 
