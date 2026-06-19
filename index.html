@@ -189,6 +189,18 @@
     border-radius:12px;padding:10px 14px;font-size:14px;color:var(--muted);
   }
 
+  /* GALLERY */
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+  .shot{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);margin:0}
+  .shot img{display:block;width:100%;height:260px;object-fit:cover;background:var(--bg-soft)}
+  .shot .ph{
+    height:260px;display:flex;align-items:center;justify-content:center;text-align:center;
+    color:var(--muted);font-size:13px;padding:24px;line-height:1.5;
+    background:repeating-linear-gradient(45deg,#16223c,#16223c 12px,#19264133 12px,#19264133 24px);
+  }
+  .shot figcaption{padding:13px 15px;font-size:14px;color:var(--muted)}
+  .shot figcaption b{color:var(--ink);display:block;margin-bottom:2px}
+
   footer{
     border-top:1px solid var(--line);
     text-align:center;padding:40px 20px;color:var(--muted);font-size:14px;
@@ -443,6 +455,37 @@
       <div class="idea">Tegevuskaart Jarnole päeva ülesannetega</div>
       <div class="idea">Reegel: igal bussi naasmisel teeb Jarno ringi (ümber poe / stadioni)</div>
       <div class="idea">Klubi Aafrikas — midagi veel korraldada?</div>
+    </div>
+  </section>
+
+  <!-- MERCH & VALUUTA -->
+  <section id="merch">
+    <div class="accentbar"></div>
+    <h2>Merch &amp; valuuta</h2>
+    <p class="sub">Päeva ametlik varustus. Henri valuuta, Prints Taeblast kollektsioon ja ikoonmasin.</p>
+    <div class="gallery">
+
+      <figure class="shot">
+        <img src="assets/valuuta.jpg" alt="The Fireball Reserve Note ja The Hydration Reserve Note" loading="lazy"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="ph" style="display:none">Lisa pilt: <b>assets/valuuta.jpg</b></div>
+        <figcaption><b>The Fireball Reserve Note · 3.50</b>800 miljonit — see ei ole mingi 3.50! Tagaküljel „Hüdreeru poja!&rdquo;.</figcaption>
+      </figure>
+
+      <figure class="shot">
+        <img src="assets/groom-tee.jpg" alt="Groom of the Month – Jarno T-särk" loading="lazy"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="ph" style="display:none">Lisa pilt: <b>assets/groom-tee.jpg</b></div>
+        <figcaption><b>Groom of the Month</b>„For outstanding performance on love.&rdquo; Prints Taeblast originaal.</figcaption>
+      </figure>
+
+      <figure class="shot">
+        <img src="assets/aprilia-sr50.jpg" alt="Klassikaline Aprilia SR50 roller" loading="lazy"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="ph" style="display:none">Lisa pilt: <b>assets/aprilia-sr50.jpg</b></div>
+        <figcaption><b>Ikoonmasin · Aprilia SR50</b>Nooruspõlve legend, millega Jarno Pirtale sõidab.</figcaption>
+      </figure>
+
     </div>
   </section>
 
