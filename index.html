@@ -189,6 +189,44 @@
     border-radius:12px;padding:10px 14px;font-size:14px;color:var(--muted);
   }
 
+  /* SONGS + MODAL */
+  .songs{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+  .song-card{
+    text-align:left;cursor:pointer;font:inherit;color:var(--ink);width:100%;
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:18px 20px;box-shadow:var(--shadow);transition:border-color .15s,transform .15s;
+  }
+  .song-card:hover{border-color:var(--accent-2);transform:translateY(-2px)}
+  .song-card .ico{font-size:26px;display:block}
+  .song-card h3{margin:10px 0 4px;font-size:17px}
+  .song-card .by{color:var(--muted);font-size:13px}
+  .song-card .open{margin-top:14px;display:inline-block;color:var(--accent-2);font-size:13px;font-weight:600}
+
+  .modal{
+    position:fixed;inset:0;z-index:100;display:none;
+    align-items:flex-start;justify-content:center;padding:40px 16px;
+    background:rgba(6,10,20,.8);backdrop-filter:blur(3px);overflow-y:auto;
+  }
+  .modal.open{display:flex}
+  .modal-box{
+    background:var(--bg-soft);border:1px solid var(--line);border-radius:18px;
+    max-width:620px;width:100%;padding:30px 32px 36px;box-shadow:var(--shadow);
+    position:relative;margin:auto;
+  }
+  .modal-box h3{margin:0 6px 2px 0;font-size:clamp(21px,4vw,27px);color:var(--accent);padding-right:40px}
+  .modal-box .by{color:var(--muted);font-size:14px;margin:0 0 20px}
+  .lyrics p{margin:0 0 15px;font-size:15px;line-height:1.7}
+  .lyrics .meta{color:var(--muted)}
+  .lyrics .em{font-style:italic;color:var(--accent-2)}
+  .lyrics .chorus{color:var(--accent-2);font-weight:600}
+  .lyrics .ref{color:var(--accent);font-weight:700;letter-spacing:.01em}
+  .modal-close{
+    position:absolute;top:16px;right:18px;cursor:pointer;
+    background:var(--card);border:1px solid var(--line);color:var(--ink);
+    width:36px;height:36px;border-radius:50%;font-size:18px;line-height:1;
+  }
+  .modal-close:hover{border-color:var(--danger);color:var(--danger)}
+
   /* PIZZA */
   .pizza-head{
     display:flex;flex-wrap:wrap;align-items:center;gap:16px;justify-content:space-between;
@@ -321,7 +359,7 @@
         <span class="time">15:30</span>
         <div class="card">
           <h3>Start Kirimäe suunal</h3>
-          <p>Bussis laulud.</p>
+          <p>Bussis laulud. <a href="#laulud">Vaata sõnu →</a></p>
           <div class="tags"><span class="tag who">Vastutaja: Georg</span><span class="tag need">Vaja: laulud valmis kirjutada</span></div>
         </div>
       </div>
@@ -373,7 +411,7 @@
         <span class="time">19:00</span>
         <div class="card">
           <h3>Getting ready — Jarnost saab Jaagup Kreem</h3>
-          <p>Ekside minemalennutamine hiina laternaga, taustal lugu „Fly on the Wings of Nurm&rdquo;.</p>
+          <p>Ekside minemalennutamine hiina laternaga, taustal lugu „Fly on the Wings of Nurm&rdquo;. <a href="#laulud">Vaata sõnu →</a></p>
           <div class="tags"><span class="tag who">Vastutaja: Martin Siimann</span></div>
         </div>
       </div>
@@ -444,6 +482,135 @@
          style="display:inline-flex;align-items:center;gap:10px;background:var(--card);color:var(--ink);font-weight:700;border:1px solid var(--accent-2);border-radius:14px;padding:15px 24px;box-shadow:var(--shadow);text-decoration:none">🖼️ Vaata albumit</a>
     </div>
   </section>
+
+  <!-- BUSSILAULUD -->
+  <section id="laulud">
+    <div class="accentbar"></div>
+    <h2>🎤 Bussilaulud</h2>
+    <p class="sub">Päeva ametlik repertuaar — Jarnole pühendatud hitid. Vajuta laulule, et avada sõnad.</p>
+    <div class="songs">
+
+      <button class="song-card" data-song="song-liisat">
+        <span class="ico">🔥</span>
+        <h3>Jarno põrutas Liisat</h3>
+        <div class="by">Billy Joel — „We Didn't Start the Fire&rdquo;</div>
+        <span class="open">📖 Ava sõnad →</span>
+      </button>
+
+      <button class="song-card" data-song="song-nurm">
+        <span class="ico">🕊️</span>
+        <h3>Fly on the Wings of Nurm</h3>
+        <div class="by">R. Kelly — „I Believe I Can Fly&rdquo;</div>
+        <span class="open">📖 Ava sõnad →</span>
+      </button>
+
+      <button class="song-card" data-song="song-tiivad">
+        <span class="ico">💔</span>
+        <h3>Katkised tiivad</h3>
+        <div class="by">Mr. Mister — „Broken Wings&rdquo;</div>
+        <span class="open">📖 Ava sõnad →</span>
+      </button>
+
+    </div>
+  </section>
+
+  <!-- LAULUDE MODALID -->
+  <div class="modal" id="song-liisat" role="dialog" aria-modal="true" aria-label="Jarno põrutas Liisat">
+    <div class="modal-box">
+      <button class="modal-close" aria-label="Sulge">✕</button>
+      <h3>Jarno põrutas Liisat</h3>
+      <p class="by">Viisil: Billy Joel — „We Didn't Start the Fire&rdquo;</p>
+      <div class="lyrics">
+        <p class="meta">Jarno Nurm, Vanessa Mae, China Red, mõnus päev</p>
+        <p>Eesti Eine, õlled leiged, Andreas Pungar. (paus)<br>
+        Sander Traks ja pikad püksid, hapa rannas pikalt üksi.<br>
+        Põhja Eesti, Lõuna Eesti, Merlin Mona Luuuur</p>
+        <p class="em">Vaheosa</p>
+        <p>Kuusikus, räme bong, suhkrulaks ja pulgakomm<br>
+        Brändon see tantsukunn ja Enn on paras munn.</p>
+        <p>Einmann ja vaktsiin, Triinu-Liis on uus Queen<br>
+        Marsin nagu Merka Piider, peas on ikka krossikiiver.</p>
+        <p class="ref">REF!<br>
+        JARNO PÕRUTAS LIISAT!<br>
+        TA ON ALATI VALMIS NAGU GABRIEL FARMIS!</p>
+        <p class="ref">JARNO PÕRUTAS LIISAT!<br>
+        TEMA HOOG EI RAUGE, HUNT EI MURRA KAUGELT!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="song-nurm" role="dialog" aria-modal="true" aria-label="Fly on the Wings of Nurm">
+    <div class="modal-box">
+      <button class="modal-close" aria-label="Sulge">✕</button>
+      <h3>Fly on the Wings of Nurm</h3>
+      <p class="by">Viisil: R. Kelly — „I Believe I Can Fly&rdquo;</p>
+      <div class="lyrics">
+        <p>Sellel suveööl,<br>
+        Kui ma ei käinud tööl,<br>
+        Tundsin õhus pinget.<br>
+        Ja see teema siin,<br>
+        Kerib kümnendi.<br>
+        Tähtajatusse lepingusse astusin!<br>
+        Siin on vaid üks värk, mis lisaksin<br>
+        Liisa on mu eit, elulõpuni!</p>
+        <p class="chorus">(chorus)<br>
+        fly on the wings of Nurm<br>
+        fly, baby, fly<br>
+        reaching the stars above<br>
+        touching the sky</p>
+        <p class="em">(salm)</p>
+        <p>Aega võttis veits<br>
+        30+ on Dzeiks<br>
+        Kuid mitte Liisa<br>
+        Pehmes liivas me<br>
+        Varbaid hõõrume<br>
+        Armastust on tunda!<br>
+        Siin on vaid üks värk, mis lisaksin<br>
+        Liisa on mu eit, elulõpuni!</p>
+        <p class="chorus">(Chorus)<br>
+        fly on the wings of Nurm<br>
+        fly, baby, fly<br>
+        reaching the stars above<br>
+        touching the sky</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="song-tiivad" role="dialog" aria-modal="true" aria-label="Katkised tiivad">
+    <div class="modal-box">
+      <button class="modal-close" aria-label="Sulge">✕</button>
+      <h3>Katkised tiivad</h3>
+      <p class="by">Viisil: Mr. Mister — „Broken Wings&rdquo;</p>
+      <div class="lyrics">
+        <p class="em">[Verse 1]</p>
+        <p>Beibe, ei mõista ma,<br>
+        Miks me ei võiks lihtsalt koos, Viimsis elada?<br>
+        See aeg, võib olla viimne meil kardan<br>
+        Kui sõrmus selgust ei loooooo.<br>
+        Sind vaja joooo, ooooooh</p>
+        <p class="chorus">[Chorus]<br>
+        Noh võta, need katkised tiivad<br>
+        Ja õpeta lendama mind, sest abiellusiin<br>
+        Jah nüüd just siis, kui laulab Lind<br>
+        Et edukas võip olla ga sporttiis<br>
+        Võtaaa, need kuradi tiiiiiiiivad.</p>
+        <p class="em">[Verse 2]</p>
+        <p>Liisa, ma mõtlesin täna<br>
+        Et võin võtta ma vale ja teha hesoyam, mmmmm<br>
+        Liisa, seda ma tean, et oled teine pool mu keres,<br>
+        Jah veri, mis mu soontes meile soojust looob, I need you sooooo</p>
+        <p class="chorus">[Chorus]<br>
+        Noh võta, need katkised tiivad<br>
+        Ja õpeta lendama mind, sest abiellusin<br>
+        Jah nüüd just siis, kui laulab Lind<br>
+        Et edukas võip olla ga sporttiis<br>
+        Võtaaa, need kuradi tiivad.</p>
+        <p>Sest nüüd on aeg meil lennata, abieluranda<br>
+        Ja kui me kuuleme, et ütleb Lind<br>
+        Siis tõotan, et abielus mees on ka edukas sporttiiis</p>
+      </div>
+    </div>
+  </div>
 
   <!-- OSALEJAD -->
   <section id="osalejad">
@@ -620,6 +787,26 @@
   <p>🥂 Jarno poissmeestekas · 20.–21. juuni 2026 · Taebla &amp; Läänemaa</p>
   <p>Tehtud poistega, <span class="heart">♥</span> peigmehele. Detailid võivad muutuda.</p>
 </footer>
+
+<script>
+  (function(){
+    function close(m){m.classList.remove('open');document.body.style.overflow='';}
+    document.querySelectorAll('[data-song]').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var m=document.getElementById(btn.dataset.song);
+        if(m){m.classList.add('open');document.body.style.overflow='hidden';}
+      });
+    });
+    document.querySelectorAll('.modal').forEach(function(m){
+      m.addEventListener('click',function(e){
+        if(e.target===m||e.target.classList.contains('modal-close'))close(m);
+      });
+    });
+    document.addEventListener('keydown',function(e){
+      if(e.key==='Escape')document.querySelectorAll('.modal.open').forEach(close);
+    });
+  })();
+</script>
 
 </body>
 </html>
