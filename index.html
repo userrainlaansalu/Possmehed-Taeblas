@@ -189,6 +189,28 @@
     border-radius:12px;padding:10px 14px;font-size:14px;color:var(--muted);
   }
 
+  /* PIZZA */
+  .pizza-head{
+    display:flex;flex-wrap:wrap;align-items:center;gap:16px;justify-content:space-between;
+    background:linear-gradient(160deg,#1c2a49,#16223c);
+    border:1px solid var(--line);border-radius:18px;
+    padding:20px 24px;margin-bottom:24px;box-shadow:var(--shadow);
+  }
+  .pizza-head .total{font-size:clamp(30px,6vw,46px);font-weight:800;color:var(--accent);line-height:1}
+  .pizza-head .total small{display:block;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+  .pizza-head .order{text-align:right;font-size:14px;color:var(--muted)}
+  .pizza-head .order b{color:var(--ink)}
+  .pizzas{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+  .pizza{
+    position:relative;background:var(--card);border:1px solid var(--line);
+    border-radius:14px;padding:16px 18px;box-shadow:var(--shadow);
+  }
+  .pizza.spicy{border-color:rgba(255,107,107,.5)}
+  .pizza .qty{position:absolute;top:14px;right:16px;font-weight:800;color:var(--accent);font-size:16px}
+  .pizza h3{margin:0 0 8px;font-size:17px;padding-right:42px}
+  .pizza h3 .spice{font-size:13px;color:var(--danger);margin-left:6px;font-weight:600}
+  .pizza p{margin:0;color:var(--muted);font-size:14px;line-height:1.45}
+
   /* GALLERY */
   .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
   .shot{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);margin:0}
@@ -342,7 +364,7 @@
         <span class="time">18:30</span>
         <div class="card">
           <h3>Pizza Grande hostelisse</h3>
-          <p>Pizza Grandest tellitud pizzad jõuavad hostelisse — õhtusöök kaetud ja valmistume Termikaks.</p>
+          <p>Pizza Grandest tellitud 10 pizzat (200 €) jõuavad hostelisse — õhtusöök kaetud ja valmistume Termikaks. <a href="#pizza">Vaata menüüd →</a></p>
           <div class="tags"><span class="tag need">Pizzad prebookitud ✓</span></div>
         </div>
       </div>
@@ -476,6 +498,62 @@
         <div class="lbl">Kulud kokku</div>
         <div class="per">Per nokk umbes<b>121,35 €</b>(peigmehe arvel ja Lennu &amp; Bräna kuludeta)</div>
       </div>
+    </div>
+  </section>
+
+  <!-- PIZZA -->
+  <section id="pizza">
+    <div class="accentbar"></div>
+    <h2>🍕 Pizza tellimus — Pizza Grande</h2>
+    <p class="sub">10 suurt (40 cm) pizzat 18 mehele annab mugava varu. Telli ette, Haapsalu: <a href="tel:+3724737200">+372 473 7200</a>.</p>
+    <div class="pizza-head">
+      <div class="total">200 €<small>10 × 40 cm pizzat</small></div>
+      <div class="order">4 tavalist · <b style="color:var(--danger)">4 teravat</b><br>Kohaletoimetus 18:30 hostelisse</div>
+    </div>
+    <div class="pizzas">
+
+      <div class="pizza">
+        <span class="qty">3×</span>
+        <h3>Grande</h3>
+        <p>Sink, salaami, hakkliha, šampinjon, uba, virsik, pärlsibul.</p>
+      </div>
+
+      <div class="pizza">
+        <span class="qty">2×</span>
+        <h3>Pizza Grande</h3>
+        <p>Kana, kebab, lihapall, metsaseen, mais, uba, küüslauk.</p>
+      </div>
+
+      <div class="pizza">
+        <span class="qty">1×</span>
+        <h3>Bolognese</h3>
+        <p>Hakkliha, šampinjon.</p>
+      </div>
+
+      <div class="pizza spicy">
+        <span class="qty">1×</span>
+        <h3>Istambul <span class="spice">🌶️ terav</span></h3>
+        <p>Kebab, fetajuust, oliiv, uba, küüslauk, jalapeno, tomat.</p>
+      </div>
+
+      <div class="pizza spicy">
+        <span class="qty">1×</span>
+        <h3>Etna <span class="spice">🌶️ terav</span></h3>
+        <p>Hakkliha, ananass, jalapeno, paprika.</p>
+      </div>
+
+      <div class="pizza spicy">
+        <span class="qty">1×</span>
+        <h3>Rio Grande <span class="spice">🌶️ terav</span></h3>
+        <p>Lihapall, peekon, pärlsibul, küüslauk, jalapeno, tomat.</p>
+      </div>
+
+      <div class="pizza spicy">
+        <span class="qty">1×</span>
+        <h3>Vesuuv <span class="spice">🌶️ terav</span></h3>
+        <p>Salaami, oliiv, sibul, küüslauk, jalapeno, paprika.</p>
+      </div>
+
     </div>
   </section>
 
